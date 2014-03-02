@@ -13,5 +13,6 @@ feature 'user changes their password' do
   scenario 'exisiting user changes their password' do
     sign_in_as(user)
     click_on 'my_profile'
+    fill_in 'New Password'
   end
 end
