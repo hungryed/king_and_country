@@ -13,6 +13,11 @@ feature 'user changes their password' do
   scenario 'exisiting user changes their password' do
     sign_in_as(user)
     click_on 'my_profile'
-    fill_in 'New Password'
+    click_on 'edit_profile'
+    fill_in 'user_password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    fill_in 'Current password', with: user.password
+    click_button 'Update'
+    expect(page).to have_content 'You updated your account successfully.'
   end
 end
