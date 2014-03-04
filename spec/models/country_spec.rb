@@ -4,4 +4,5 @@ describe Country do
   it { should validate_presence_of :name }
 
   it { should have_many(:users).through(:country_armies) }
+  it { should have_many(:country_armies) }
 end
