@@ -8,7 +8,8 @@ feature 'user joins a country' do
     sign_in_as(user)
     visit root_path
     click_on 'Join a Country'
-    click_button 'Join random country'
+    select country.name, from: 'Country'
+    click_on 'Submit'
 
     expect(page).to have_content "You are now part of #{country.name}"
   end

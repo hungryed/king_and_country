@@ -2,7 +2,8 @@ KingAndCountry::Application.routes.draw do
   devise_for :users
   root 'pages#index'
   resources :users
-
+  resources :countries
+  resources :country_armies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,4 @@
+<%= simple_form_for @user_country do |f| %>
+  <%= f.input :country, label: 'Country', collection: @countries, as: :select %>
+  <%= f.button :submit, 'Submit' %>
+<% end %>
