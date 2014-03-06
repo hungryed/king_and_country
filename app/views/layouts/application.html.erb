@@ -17,9 +17,13 @@
     <p class="alert"><%= alert %></p>
     <%= link_to 'Sign Up', new_user_registration_path %>
     <%= link_to 'Sign In', new_user_session_path, id: 'sign_in' %>
-    <%= link_to 'Join a Country', countries_path %>
     <% if user_signed_in? %>
       <%= link_to 'My Profile', user_path(current_user) , id: 'my_profile' %>
+      <% if current_user.current_country %>
+        <%= link_to 'City Center', '#' %>
+      <% else %>
+        <%= link_to 'Join a Country', countries_path %>
+      <% end %>
     <% end %>
     <div class="row">
       <%= yield %>
