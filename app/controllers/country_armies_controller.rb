@@ -1,6 +1,10 @@
 class CountryArmiesController < ApplicationController
   def create
-    @country = Country.find(params[:country_army][:country])
+    if params[:q]
+      @country = Country.where(invite_token: params[:q]).first
+    else
+      @country = Country.find(params[:country_army][:country])
+    end
     @user_country = CountryArmy.new(user: current_user,
       age: CountryArmy.current_age,
       country: @country)

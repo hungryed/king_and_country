@@ -1,4 +1,10 @@
 <%= simple_form_for @user_country do |f| %>
   <%= f.input :country, label: 'Country', collection: @countries, as: :select %>
-  <%= f.button :submit, 'Submit' %>
+  <%= f.button :submit, 'Submit', id: 'submit_random_country' %>
+<% end %>
+
+<%= form_tag(country_armies_path, method: "post") do %>
+  <%= label_tag(:q, "Country Code") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag "Submit", id: 'submit_country_code' %>
 <% end %>
