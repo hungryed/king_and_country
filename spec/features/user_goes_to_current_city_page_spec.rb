@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature 'user goes to current city' do
-  let!(:country_army) { FactoryGirl.create(:country_army) }
+  let!(:country) { FactoryGirl.create(:country_with_capital) }
+  let!(:country_army) { FactoryGirl.create(:country_army, country: country) }
   let(:user) { country_army.user }
-  let(:country) { country_army.country }
 
   context "authenticated user" do
     scenario 'visits city page for first time and sees capital' do
