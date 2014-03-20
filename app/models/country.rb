@@ -3,6 +3,9 @@ class Country < ActiveRecord::Base
   has_many :users,
     through: :country_armies
   has_many :country_armies
+  belongs_to :capital_city,
+    class_name: "City",
+    foreign_key: "capital_city_id"
   before_create :generate_invite_token
 
   def generate_invite_token
