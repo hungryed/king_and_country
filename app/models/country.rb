@@ -3,9 +3,7 @@ class Country < ActiveRecord::Base
   has_many :users,
     through: :country_armies
   has_many :country_armies
-  belongs_to :capital_city,
-    class_name: "City",
-    foreign_key: "capital_city_id"
+  has_many :cities
   before_create :generate_invite_token
 
   def generate_invite_token
@@ -16,5 +14,9 @@ class Country < ActiveRecord::Base
     else
       self.invite_token = country_token
     end
+  end
+
+  def capital_city
+    cities.where(capital_city: true)
   end
 end
