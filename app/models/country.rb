@@ -17,6 +17,6 @@ class Country < ActiveRecord::Base
   end
 
   def capital_city
-    cities.where(capital_city: true)
+    cities.where(capital_city: true).first
   end
 end

@@ -13,6 +13,7 @@ describe Country do
   end
 
   it "should have a capital city" do
+    city = FactoryGirl.create(:city, country: country, capital_city: true)
     expect(country.capital_city).to be_instance_of City
   end
 end
