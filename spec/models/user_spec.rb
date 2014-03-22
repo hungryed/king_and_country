@@ -7,6 +7,8 @@ describe User do
   it { should have_many(:countries).through(:country_armies) }
   it { should have_many(:country_armies) }
 
+  it { should belong_to :city }
+
   it "should find the users current country" do
     country_army = FactoryGirl.create(:country_army)
     user = country_army.user

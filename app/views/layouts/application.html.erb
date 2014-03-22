@@ -20,7 +20,7 @@
     <% if user_signed_in? %>
       <%= link_to 'My Profile', user_path(current_user) , id: 'my_profile' %>
       <% if current_user.current_country %>
-        <%= link_to 'City Center', '#' %>
+        <%= link_to 'City Center', country_city_path(current_user.current_country, current_user.city) %>
       <% else %>
         <%= link_to 'Join a Country', countries_path %>
       <% end %>

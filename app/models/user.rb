@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :countries,
     through: :country_armies
   has_many :country_armies
+  belongs_to :city
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
